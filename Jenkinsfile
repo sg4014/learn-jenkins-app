@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'node:22-alpine'
                 }
             }
             steps {
@@ -44,7 +44,7 @@ pipeline {
         stage('Deploy') {
             agent {
                 docker {
-                    image 'node:18-alpine'
+                    image 'node:22-alpine'
                 }
             }
             steps {
@@ -56,7 +56,7 @@ pipeline {
                 node_modules/netlify --version
                 echo 'Deploying to Project ID: ${NETLIFY_SITE_ID}'
                 node_modules/netlify status
-                node_modules/netlify deploy
+                node_modules/netlify deploy --dir=build --prod
                 '''
             }
         }
