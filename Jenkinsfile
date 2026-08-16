@@ -53,12 +53,10 @@ pipeline {
                 node --version
                 npm --version
                 npm install --save-dev netlify-cli
-                which netlify
-                echo $PATH
-                netlify --version
+                node_modules/.bin/netlify --version
                 echo 'Deploying to Project ID: ${NETLIFY_SITE_ID}'
-                netlify status
-                netlify deploy --dir=build --prod
+                node_modules/.bin/netlify status
+                node_modules/.bin/netlify deploy --dir=build --prod
                 '''
             }
         }
