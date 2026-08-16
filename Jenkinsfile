@@ -52,11 +52,11 @@ pipeline {
                 ls -la
                 node --version
                 npm --version
-                npm install --save-dev netlify-cli
-                node_modules/netlify --version
+                npm install netlify-cli
+                netlify --version
                 echo 'Deploying to Project ID: ${NETLIFY_SITE_ID}'
-                node_modules/netlify status
-                node_modules/netlify deploy --dir=build --prod
+                netlify status
+                netlify deploy --dir=build --prod
                 '''
             }
         }
