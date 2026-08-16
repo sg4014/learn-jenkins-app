@@ -34,6 +34,22 @@ pipeline {
                 '''
             }
         }
+
+        stage('Deploy') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
+            steps {
+                sh '''
+                ls -la
+                node --version
+                npm --version
+                npm install --save-dev netlify-cli
+                '''
+            }
+        }
     }
 
     post {
