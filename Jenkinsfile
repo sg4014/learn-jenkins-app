@@ -52,7 +52,9 @@ pipeline {
                 ls -la
                 node --version
                 npm --version
-                npm install netlify-cli
+                npm install --save-dev netlify-cli
+                which netlify
+                echo $PATH
                 netlify --version
                 echo 'Deploying to Project ID: ${NETLIFY_SITE_ID}'
                 netlify status
