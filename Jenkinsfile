@@ -2,13 +2,12 @@ pipeline {
     agent any
 
     stages {
-        agent {
-            docker {
-                image 'node:18-alpine'
-            }
-        }
-
         stage('Build') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
             steps {
                 sh '''
                 npm --version
@@ -16,7 +15,13 @@ pipeline {
                 '''
             }
         }
+
         stage('Test') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
             steps {
                 sh '''
                 npm test
