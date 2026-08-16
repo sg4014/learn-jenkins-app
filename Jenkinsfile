@@ -10,8 +10,10 @@ pipeline {
             }
             steps {
                 sh '''
-                npm i react-scripts
+                ls -la
+                node --version
                 npm --version
+                npm i react-scripts
                 npm run build
                 '''
             }
@@ -25,6 +27,9 @@ pipeline {
             }
             steps {
                 sh '''
+                ls -la
+                node --version
+                npm --version
                 npm test
                 '''
             }
