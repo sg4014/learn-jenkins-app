@@ -10,6 +10,7 @@ pipeline {
             }
             steps {
                 sh '''
+                npm i react-scripts
                 npm --version
                 npm run build
                 '''
